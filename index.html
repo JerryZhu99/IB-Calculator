@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="ibgrade">Current IB Percentage</label>
+                        <label for="ibgrade" data-toggle="tooltip" data-placement="top" title="Weighted average of all IAs and externally assessed essays">Current IB Percentage</label>
                         <div class="input-group">
                             <input id="grade" class="form-control" type="number" min="0" max="100" name="ibgrade" value="">
                             <div class="input-group-addon">
@@ -40,33 +40,37 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="button" class="btn btn-success" name="button" onclick="calculate()">Calculate</button>
+                        <button type="submit" class="btn btn-success" name="button">Calculate</button>
                     </div>
                 </form>
             </div>
             <br>
             <div class="col-xs-12">
                 <h2>Minimum Exam Scores</h2>
-                <table class="table" id="results">
-                    <tr>
-                        <td>Class</td>
-                        <td>IA Grade</td>
-                        <td>Exam Weight</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td></td>
-                    </tr>
-                </table>
+                <div class="table-responsive">
+                    <table class="table" id="results">
+                        <tr>
+                            <td>Class</td>
+                            <td>Current Grade</td>
+                            <td>Exam Weight</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
             <hr>
-            <p>
-                Data obtained from <a href="http://www.ibo.org/university-admission/ib-recognition-resources-and-document-library/#briefs">IB subject briefs</a> and <a href="http://www.dpcdsb.org/NR/rdonlyres/257D5ECC-B156-4400-B0C7-D765BB3D4855/169854/May_2016_grade_boundaries.pdf">May 2016 grade boundaries.</a>
-            </p>
+            <div class="col-xs-12">
+                <p>
+                    Data obtained from <a href="http://www.ibo.org/university-admission/ib-recognition-resources-and-document-library/#briefs">IB subject briefs</a> and <a href="http://www.dpcdsb.org/NR/rdonlyres/257D5ECC-B156-4400-B0C7-D765BB3D4855/169854/May_2016_grade_boundaries.pdf">May 2016 grade boundaries.</a>
+                </p>
+            </div>
         </div>
     </div>
 </body>

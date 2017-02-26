@@ -7,9 +7,12 @@ $.getJSON("data.json",function(ndata){
         $("#classes").append("<option>"+data[i].Class+"</option>");
     }
 });
-$("table").on("click", "button", function(e){
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+});
+$("table").on("click", "#delete", function(e){
    $(this).closest("tr").remove()
-})
+});
 function calculate(){
     var c = $("#classes").val();
     var ib = $("#grade").val();
@@ -41,7 +44,7 @@ function calculate(){
         }
         h=h+"<td>"+b+"</td>";
     }
-    h=h+"<td><button class='btn btn-alert'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></button></td>";
+    h=h+"<td><a id='delete' class='text-danger'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td>";
 
     h=h+"</tr>";
     $("#results").append(h);
