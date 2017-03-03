@@ -7,7 +7,9 @@
     <title>IB Grade Calculator</title>
 </head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<body>
+<script src="angular.min.js" charset="utf-8"></script>
+
+<body ng-app="app" ng-controller="maincontrol">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -21,21 +23,21 @@
         <div class="row">
             <div class="col-xs-12">
                 <h1>Minimum Grade Calculator</h1>
-                <form class="form-inline" onsubmit="return calculate();">
+                <form class="form-inline" onsubmit="return scope.calculate();">
                     <div class="form-group">
                         <div class="dropdown">
                             <label for="cclass">Select class:</label>
-                            <select class="form-control" name="cclass" id="classes">
-
+                            <select class="form-control" name="cclass" id="classes" ng-model="current">
+                                <option ng-repeat="item in classes" value="{{$index}}">{{item.Class}}</option>
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="ibgrade" data-toggle="tooltip" data-placement="top" title="Weighted average of all IAs and externally assessed essays">Current IB Percentage</label>
+                    <div class="form-group" ng-repeat="ia in classes[current].ias">
+                        <label for="ibgrade">{{ia.name}}</label>
                         <div class="input-group">
-                            <input id="grade" class="form-control" type="number" min="0" max="100" name="ibgrade" value="">
+                            <input id="grade" class="form-control" type="number" min="0" max="{{ia.marks}}" name="ibgrade" value="" ng-model="result[$index]">
                             <div class="input-group-addon">
-                                %
+                                {{"/"+ia.marks}}
                             </div>
                         </div>
                     </div>
@@ -61,6 +63,18 @@
                             <td>6</td>
                             <td>7</td>
                             <td></td>
+                        </tr>
+                        <tr ng-repeat="row in results">
+                            <td>{{row.Class}}</td>
+                            <td>{{row.Grade}}</td>
+                            <td>{{row.Weight}}</td>
+                            <td>{{row[1]}}</td>
+                            <td>{{row[2]}}</td>
+                            <td>{{row[3]}}</td>
+                            <td>{{row[4]}}</td>
+                            <td>{{row[5]}}</td>
+                            <td>{{row[6]}}</td>
+                            <td>{{row[7]}}</td>
                         </tr>
                     </table>
                 </div>

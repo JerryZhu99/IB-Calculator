@@ -8,7 +8,14 @@
    "5": 53,
    "6": 65,
    "7": 78,
-   "Percentage": 80
+   "Percentage": 80,
+   "ias":[
+       {
+           "name":"Lab",
+           "weight":20,
+           "marks":24
+       }
+   ]
  },
  {
    "Class": "Biology SL",
@@ -19,7 +26,15 @@
    "5": 49,
    "6": 63,
    "7": 76,
-   "Percentage": 80
+   "Percentage": 80,
+   "ias":[
+       {
+           "name":"Lab",
+           "weight":20,
+           "marks":24
+       }
+   ]
+
  },
  {
    "Class": "Chemistry HL",
@@ -30,7 +45,14 @@
    "5": 56,
    "6": 67,
    "7": 78,
-   "Percentage": 80
+   "Percentage": 80,
+   "ias":[
+       {
+           "name":"Lab",
+           "weight":20,
+           "marks":24
+       }
+   ]
  },
  {
    "Class": "Chemistry SL",
@@ -41,7 +63,14 @@
    "5": 55,
    "6": 64,
    "7": 76,
-   "Percentage": 80
+   "Percentage": 80,
+   "ias":[
+       {
+           "name":"Lab",
+           "weight":20,
+           "marks":24
+       }
+   ]
  },
  {
    "Class": "Chinese B - Mandarin HL",
@@ -151,7 +180,14 @@
    "5": 51,
    "6": 63,
    "7": 73,
-   "Percentage": 80
+   "Percentage": 80,
+   "ias":[
+       {
+           "name":"IA",
+           "weight":20,
+           "marks":20
+       }
+   ]
  },
  {
    "Class": "Mathematics SL",
@@ -162,7 +198,14 @@
    "5": 54,
    "6": 66,
    "7": 78,
-   "Percentage": 80
+   "Percentage": 80,
+   "ias":[
+       {
+           "name":"IA",
+           "weight":20,
+           "marks":20
+       }
+   ]
  },
  {
    "Class": "Physics HL",
@@ -173,7 +216,14 @@
    "5": 45,
    "6": 55,
    "7": 66,
-   "Percentage": 80
+   "Percentage": 80,
+   "ias":[
+       {
+           "name":"Lab",
+           "weight":20,
+           "marks":24
+       }
+   ]
  },
  {
    "Class": "Physics SL",
@@ -184,7 +234,14 @@
    "5": 44,
    "6": 55,
    "7": 65,
-   "Percentage": 80
+   "Percentage": 80,
+   "ias":[
+       {
+           "name":"Lab",
+           "weight":20,
+           "marks":24
+       }
+   ]
  },
  {
    "Class": "Psychology HL",
