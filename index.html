@@ -23,27 +23,32 @@
         <div class="row">
             <div class="col-xs-12">
                 <h1>Minimum Grade Calculator</h1>
-                <form class="form-inline" onsubmit="return scope.calculate();">
-                    <div class="form-group">
-                        <div class="dropdown">
-                            <label for="cclass">Select class:</label>
-                            <select class="form-control" name="cclass" id="classes" ng-model="current">
-                                <option ng-repeat="item in classes" value="{{$index}}">{{item.Class}}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group" ng-repeat="ia in classes[current].ias">
-                        <label for="ibgrade">{{ia.name}}</label>
-                        <div class="input-group">
-                            <input id="grade" class="form-control" type="number" min="0" max="{{ia.marks}}" name="ibgrade" value="" ng-model="result[$index]">
-                            <div class="input-group-addon">
-                                {{"/"+ia.marks}}
+                <form class="form" onsubmit="return scope.calculate();">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <div class="dropdown">
+                                <label for="cclass">Select class:</label>
+                                <select class="form-control" name="cclass" id="classes" ng-model="current">
+                                    <option ng-repeat="item in classes" value="{{$index}}">{{item.Class}}</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success" name="button">Calculate</button>
+                    <div class="row">
+                        <div class="form-group col-md-4" ng-repeat="ia in classes[current].ias">
+                            <label for="ibgrade">{{ia.name}}</label>
+                            <div class="input-group">
+                                <input id="grade" class="form-control" type="number" min="0" max="{{ia.marks}}" name="ibgrade" value="" ng-model="result[$index]">
+                                <div class="input-group-addon">
+                                    {{"/"+ia.marks}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <button type="submit" class="btn btn-success" name="button">Calculate</button>
+                        </div>
                     </div>
+
                 </form>
             </div>
             <br>
@@ -52,29 +57,30 @@
                 <div class="table-responsive">
                     <table class="table" id="results">
                         <tr>
-                            <td>Class</td>
-                            <td>Current Grade</td>
-                            <td>Exam Weight</td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>7</td>
-                            <td></td>
+                            <th>Class</th>
+                            <th>Current Grade</th>
+                            <th>Exam Weight</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th><span class='glyphicon glyphicon-remove text-danger' type="button" name="del" ng-click="remove()"></th>
                         </tr>
-                        <tr ng-repeat="row in results">
+                        <tr ng-repeat="row in results track by $index">
                             <td>{{row.Class}}</td>
                             <td>{{row.Grade}}</td>
                             <td>{{row.Weight}}</td>
-                            <td>{{row[1]}}</td>
-                            <td>{{row[2]}}</td>
-                            <td>{{row[3]}}</td>
-                            <td>{{row[4]}}</td>
-                            <td>{{row[5]}}</td>
-                            <td>{{row[6]}}</td>
-                            <td>{{row[7]}}</td>
+                            <td ng-class="row[1]=='impossible'?'danger':(row[1]=='0%'?'success':'')">{{row[1]}}</td>
+                            <td ng-class="row[2]=='impossible'?'danger':(row[2]=='0%'?'success':'')">{{row[2]}}</td>
+                            <td ng-class="row[3]=='impossible'?'danger':(row[3]=='0%'?'success':'')">{{row[3]}}</td>
+                            <td ng-class="row[4]=='impossible'?'danger':(row[4]=='0%'?'success':'')">{{row[4]}}</td>
+                            <td ng-class="row[5]=='impossible'?'danger':(row[5]=='0%'?'success':'')">{{row[5]}}</td>
+                            <td ng-class="row[6]=='impossible'?'danger':(row[6]=='0%'?'success':'')">{{row[6]}}</td>
+                            <td ng-class="row[7]=='impossible'?'danger':(row[7]=='0%'?'success':'')">{{row[7]}}</td>
+                            <td><span class='glyphicon glyphicon-remove text-danger' type="button" name="del" ng-click="remove($index)"></span></td>
                         </tr>
                     </table>
                 </div>

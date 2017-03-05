@@ -11,6 +11,9 @@ angular.module("app", [])
     $scope.results = [];
     $scope.result = [];
 
+    var s = JSON.parse(localStorage.getItem('results'));
+    if(s) $scope.results = s;
+
     $http.get('data.json').then(function(data, status, headers, config) {
            $scope.classes = data.data;
        }).catch(function(data, status, headers, config) {
@@ -24,9 +27,11 @@ angular.module("app", [])
         result.Grade = 0.0;
         var weight = 0.0;
         for(var i=0;i<c.ias.length;i++){
-            result.Grade = $scope.result[i]/parseInt(c.ias[i].marks)*parseInt(c.ias[i].weight);
+            result.Grade += $scope.result[i]/parseInt(c.ias[i].marks)*parseInt(c.ias[i].weight);
             weight += c.ias[i].weight;
         }
+        console.log(weight);
+        console.log(result.Grade);
         var g = result.Grade/weight*100;
         result.Grade = Math.round(g*100.0)/100 + "%";
         var w =  parseInt(c.Percentage);
@@ -43,8 +48,17 @@ angular.module("app", [])
             result[i]=b;
         }
         $scope.results.push(result);
+        localStorage.setItem('results', JSON.stringify($scope.results));
         return false;
 
+    }
+    $scope.remove = function(index){
+        if(index==undefined){
+            $scope.results = [];
+        }else{
+            $scope.results.splice(index, 1);
+        }
+        localStorage.setItem('results', JSON.stringify($scope.results));
     }
 });
 
